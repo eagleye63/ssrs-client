@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../../styles/publicpage.css'
 import {Context} from "../App";
-import {domainUrl, infoMessages} from "../../config/configuration";
+import {domainUrl, infoMessages,errorMessages} from "../../config/configuration";
 import * as HttpStatus from "http-status-codes";
 import logo from "../../images/dalogo.jpg";
 import ForgotPassword from "./ForgotPassword";
@@ -74,7 +74,7 @@ class PublicPage extends Component {
             }
             else {
                 that.setState({
-                    signupMessage: request.responseText
+                    signupMessage: errorMessages.incorrectUserNameOrPassword 
                 })
             }
             that.props.hideSpinner();
