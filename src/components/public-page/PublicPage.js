@@ -44,12 +44,13 @@ class PublicPage extends Component {
     }
 
     handleSignUp = () => {
+        this.props.showSpinner();
         this.setState({
             isSignedup: false,
             signupMessage: ''
         });
-        this.props.showSpinner();
-        const url = domainUrl + '/account/signup';
+        
+        const url = domainUrl + '/account/signup';  
         const userObj = {
             daiictId: this.state.daiictId,
             password: this.state.password
