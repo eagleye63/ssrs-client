@@ -10,6 +10,8 @@ import SignInPage from "./SignInPage"
 import { withAlert } from "react-alert";
 import {loadSpinner, unloadSpinner} from "../../helper/spinner";
 
+
+
 class PublicPage extends Component {
     constructor() {
         super();
@@ -23,7 +25,8 @@ class PublicPage extends Component {
             forgotPasswordMessage: '',
             showPassword: false,
             modalIsOpen: false,
-            showSpinner: false
+            showSpinner: false,
+            isTourOpen: false
         }
     }
     showSpinner = () => {
@@ -180,16 +183,18 @@ class PublicPage extends Component {
 
     };
 
-
+   
     render() {
+   
         const {daiictId, password, login, isSignedup, signupMessage, showPassword} = this.state
         return (
+           
             <Context.Consumer>
                 {
                     value => {
                         return (
                             <React.Fragment>
-
+                                 
                                 <div className="loginbox">
                                     <div className="imagelogo">
                                         <img className={"dalogo"} src={logo}/>
@@ -217,8 +222,9 @@ class PublicPage extends Component {
                                                     clearSignupMessage={this.clearSignupMessage}
                                                     handleSignUp={this.handleSignUp}
                                                     handleChange={this.handleChange}
+                                                    isTourOpen={this.isTourOpen}
                                                     />
-
+                                    
                                     </div>
                                     <div className="tabs"><label className="tab" htmlFor="signin">
                                         <div className="text">Sign In</div>

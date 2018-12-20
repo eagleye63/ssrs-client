@@ -21,7 +21,7 @@ import NewParameterForm from "./parameter/NewParameterForm";
 import CollectionType from "./collectionType/CollectionType";
 import CollectionTypeEditForm from "./collectionType/CollectionTypeEditForm";
 import Cart from './order/cart/Cart'
-import {isAdmin, isStudent, isSuperAdmin} from "../helper/userType";
+import {isAdmin, isStudent, isSuperAdmin, isOnlyAdmin} from "../helper/userType";
 import Payment from "./order/payment/Payment";
 import Info from "./order/info/Info";
 import Myprofile from './Myprofile/Myprofile'
@@ -44,7 +44,7 @@ import Tour from "reactour";
 import Text from "../product_tour/Text";
 import Tooltip from "../product_tour/Tooltip";
 import { Link } from "../product_tour/Button";
-
+import Dashboard_admin from '../components/Dashboard/dashboard_admin';
 export const Context = React.createContext();
 
 class App extends Component {    
@@ -319,6 +319,10 @@ class App extends Component {
                                 exact path='/dashboard'
                                 component={dashboard}
                                 permission={isSuperAdmin(this.state.user)}/>
+                            <AuthorizedRoute
+                                exact path='/dashboard_admin'
+                                component={Dashboard_admin}
+                                permission={isOnlyAdmin(this.state.user)}/>
                             <AuthorizedRoute
                                 exact path='/email'
                                 component={Email}

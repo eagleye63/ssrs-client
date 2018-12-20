@@ -7,12 +7,17 @@ import Heading from './Heading';
 const Demo = ({ openTour}) => (
   <div>
    
-    <Section center>
+      <div style={{
+        position: 'fixed',
+        bottom: '2%',
+        left: '1%'
+      }}>
       <Button h="4" onClick={openTour}>
-        Try it
+        Happy to Help !
       </Button>
+      </div>
       
-    </Section>
+  
       
       
     

@@ -176,8 +176,7 @@ class Home extends Component {
 const tourConfig = [
     {
       selector: '[data-tut="reactour__copyHome"]',
-      content: `Keep in mind that you could try and test everithing during the Tour. 
-        For example, try selecting the highlighted text…`
+      content: 'Displays News and Notifications'
     },
     {
         selector: '[data-tut="reactour__copyServices"]',

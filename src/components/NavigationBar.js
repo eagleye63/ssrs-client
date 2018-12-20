@@ -4,7 +4,7 @@ import Image from "./Image";
 import logo from "../images/daiict.png";
 import {Link, withRouter} from "react-router-dom";
 import AuthorizedComponent from "./AuthorizedComponent";
-import {isAdmin, isStudent, isSuperAdmin} from "../helper/userType";
+import {isAdmin, isStudent, isSuperAdmin, isOnlyAdmin} from "../helper/userType";
 import { invalid } from 'moment';
 
 function NavLink({path, text, onClick, className, currPath, icon}) {
@@ -104,6 +104,12 @@ class NavigationBar extends Component {
                                                              icon='archive'
                                                              currPath={this.props.location.pathname}
                                                              text={'CollectionTypes'}
+                                                             component={NavLink}/>
+                                        <AuthorizedComponent permission={isOnlyAdmin(value.user)}
+                                                             path='/dashboard_admin'
+                                                             icon='line-chart'
+                                                             currPath={this.props.location.pathname}
+                                                             text={'Dashboard'}
                                                              component={NavLink}/>
                                         <AuthorizedComponent permission={isSuperAdmin(value.user)}
                                                              path='/permission'
