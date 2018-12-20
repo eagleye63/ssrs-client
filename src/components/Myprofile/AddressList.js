@@ -6,9 +6,6 @@ function AddressList({ addresses, openEditAddressModal, deleteAddress, openNewAd
         <React.Fragment>
             {
                 _.map(addresses, (address, index) => {
-                    console.log('i am in addresslist address._id '+address._id);
-                    console.log('i am in addresslist address._id '+index);
-                    console.log('i am in addresslist address._id '+address);
                     return (
                         <div className={'address-bx animated fadeIn' + (selected === index ? ' address-selected' : '')}
                             onClick={handleClick ? () => handleClick(index) : ''}>
@@ -45,7 +42,7 @@ function AddressList({ addresses, openEditAddressModal, deleteAddress, openNewAd
                                     ?   <button type="button" className="btn btn-outline-dark address-edit"
                                             onClick={() => openEditAddressModal(address._id, index, address)}>
                                             Edit
-                                        </button>   
+                                        </button>
                                     :   ''
                             }
                         </div>

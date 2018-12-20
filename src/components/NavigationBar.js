@@ -5,6 +5,7 @@ import logo from "../images/daiict.png";
 import {Link, withRouter} from "react-router-dom";
 import AuthorizedComponent from "./AuthorizedComponent";
 import {isAdmin, isStudent, isSuperAdmin} from "../helper/userType";
+import { invalid } from 'moment';
 
 function NavLink({path, text, onClick, className, currPath, icon}) {
     if (currPath) {
@@ -12,7 +13,8 @@ function NavLink({path, text, onClick, className, currPath, icon}) {
     }
 
     return (
-        <li className={"nav-item " + (currPath === path ? "active" : "") + " " + className}>
+     
+        <li className={"nav-item " + (currPath === path ? "active" : "") + " " + className} data-tut={"reactour__copy"+text}>
             <Link className="nav-link" onClick={onClick} to={{
                 pathname: path,
             }}>
@@ -20,6 +22,7 @@ function NavLink({path, text, onClick, className, currPath, icon}) {
                 {text}
             </Link>
         </li>
+    
     )
 }
 
@@ -52,7 +55,8 @@ class NavigationBar extends Component {
                             <Image src={logo} className={'logo'}/>
                             <nav ref={(input) => {
                                 this.input = input
-                            }} className="navbar navbar-expand-lg navbar-dark bg-dark">
+                            }}
+                             className="navbar navbar-expand-lg navbar-dark bg-dark">
                                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                                         aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +67,8 @@ class NavigationBar extends Component {
                                         <NavLink path={'/'}
                                                  text={"Home"}
                                                  icon='home'
-                                                 currPath={this.props.location.pathname}/>
+                                                 currPath={this.props.location.pathname}
+                                                 id="home1"/>
                                         <NavLink path={'/service'}
                                                  text={'Services'}
                                                  icon={'handshake-o'}

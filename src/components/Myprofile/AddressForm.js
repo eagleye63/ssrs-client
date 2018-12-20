@@ -1,8 +1,5 @@
 import React from "react"
 import Modal from "react-bootstrap4-modal";
-const teststyle={
-    
-}
 
 class AddressForm extends React.Component {
     constructor(props) {
@@ -56,17 +53,17 @@ class AddressForm extends React.Component {
             [target.name]: target.value
         })
     };
-    
+
 
     render() {
         return (
-            <Modal visible={this.props.open}  >
+            <Modal visible={this.props.open}>
                     <form autoComplete="off" onSubmit={(e) => {
                         e.preventDefault();
                         this.props.handleSubmit(this.getCourierDetails())
-                    }}  style={{paddingTop : '25px'}}>
+                    }}>
                         <div className={'modal-body'}>
-                        <div className={'form-gruop'} >
+                        <div className={'form-group'}>
                             <label>Name:</label>
                             <input name="name"
                                    value={this.state.name}
