@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../../styles/publicpage.css'
 import {Context} from "../App";
-import {domainUrl, infoMessages} from "../../config/configuration";
+import {domainUrl, infoMessages,errorMessages} from "../../config/configuration";
 import * as HttpStatus from "http-status-codes";
 import logo from "../../images/dalogo.jpg";
 import ForgotPassword from "./ForgotPassword";
@@ -67,15 +67,20 @@ class PublicPage extends Component {
                 that.setState({
                     signupMessage: request.responseText
                 })
+             //   console.log('i am in public-page signup else forbidion'+  request.responseText);
             } else if (this.status === HttpStatus.INTERNAL_SERVER_ERROR) {
                 that.setState({
-                    signupMessage: request.responseText
+                    signupMessage: errorMessages.internalServerError
                 })
+               // console.log('i am in public-page signup else internal server error'+  errorMessages.internalServerError);
             }
             else {
                 that.setState({
-                    signupMessage: request.responseText
+                    //signupMessage: request.responseText
+                    signupMessage: errorMessages.incorrectUserNameOrPassword 
                 })
+//                console.log('i am in public-page signup else'+ this.state.signupMessage);
+                  //console.log('i am in public-page signup else'+  request.statusText);
             }
             that.props.hideSpinner();
         };
@@ -189,7 +194,7 @@ class PublicPage extends Component {
                                         <div className="text">Sign In</div>
                                     </label><label className="tab" htmlFor="register">
                                         <div className="text">Register</div>
-                                    </label></div>
+                                    </label> </div>
                                 </div>
                                 <ForgotPassword visible={this.state.modalIsOpen}
                                                 closeModal={this.closeModal}
