@@ -130,7 +130,7 @@ class NavigationBar extends Component {
                                                              text={'Help'}
                                                              icon={'question-circle'}
                                                              component={NavLink}/>
-                                        <NavLink text={'About Us'}
+                                        <NavLink text={'Developers'}
                                                  path={'/aboutUs'}
                                                  icon={'angellist'}
                                                  className={"ml-auto"}
