@@ -105,12 +105,7 @@ class NavigationBar extends Component {
                                                              currPath={this.props.location.pathname}
                                                              text={'CollectionTypes'}
                                                              component={NavLink}/>
-                                        <AuthorizedComponent permission={isOnlyAdmin(value.user)}
-                                                             path='/dashboard_admin'
-                                                             icon='line-chart'
-                                                             currPath={this.props.location.pathname}
-                                                             text={'Dashboard'}
-                                                             component={NavLink}/>
+                                        
                                         <AuthorizedComponent permission={isSuperAdmin(value.user)}
                                                              path='/permission'
                                                              icon={'lock'}
@@ -144,7 +139,7 @@ class NavigationBar extends Component {
                                         <NavLink text={'Developers'}
                                                  path={'/aboutUs'}
                                                  icon={'angellist'}
-                                                 className={"ml-auto"}
+                                                 
                                                  currPath={this.props.location.pathname}/>
                                         <NavLink text={'Logout'}
                                                  icon={'sign-out'}

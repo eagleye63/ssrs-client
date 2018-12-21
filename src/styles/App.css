@@ -272,9 +272,6 @@ input[type=submit] {
     font-weight: unset;
 }
 
-.limiter tbody tr:nth-child(even) {
-    /*background-color: #f5f5f5;*/
-}
 
 .limiter tbody tr {
     font-family: OpenSans-Regular;
@@ -295,14 +292,18 @@ input[type=submit] {
     font-weight: bold;
     padding-top: 4px;
 }
+@media screen and (max-width: 369px){
 
-@media screen and (max-width: 600px) {
     .limiter table {
         display: block;
     }
 
     .limiter table > *, table tr, table td, table th {
         display: block;
+        margin: 0%;
+        width: 100%;
+        text-align: left;
+        
     }
 
     .limiter table thead {
@@ -311,9 +312,79 @@ input[type=submit] {
 
     .limiter table tbody tr {
         height: auto;
-        padding: 37px 0;
+        padding: 37px 0; 
         border: 1px solid black;
         border-top: 0px;
+        width: 100%;
+        
+    }
+
+    .limiter table tbody tr td {
+        text-align: center;
+        margin-bottom: 4px;
+        width: 100%;
+    }
+
+    .limiter table tbody tr td:last-child {
+        margin-bottom: 0;
+    }
+
+    .limiter table tbody tr:first-child {
+        border-top: 1px solid black;
+    }
+
+    .limiter table tbody tr td:before {
+        font-family: OpenSans-Regular;
+        font-size: 14px;
+        color: black;
+        line-height: 1.2;
+        font-weight: unset;
+        position: relative;
+        width: 40%;
+        left: 0%;
+        
+        
+
+    }
+
+    .limiter table tbody tr td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 100%;
+        
+    }
+
+    tbody tr {
+        font-size: 14px;
+    }
+
+}
+@media screen and (max-width: 600px) and (min-width: 370px){
+
+
+    .limiter table {
+        display: block;
+    }
+
+    .limiter table > *, table tr, table td, table th {
+        display: block;
+        margin: 0%;
+        width: 100%;
+        text-align: left;
+
+    }
+
+    .limiter table thead {
+        display: none;
+    }
+
+    .limiter table tbody tr {
+        height: auto;
+        padding: 37px 0; 
+        border: 1px solid black;
+        border-top: 0px;
+        width: 100%;
     }
 
     .limiter table tbody tr td {
@@ -332,7 +403,7 @@ input[type=submit] {
     .limiter table tbody tr td:before {
         font-family: OpenSans-Regular;
         font-size: 14px;
-        color: #999999;
+        color: black;
         line-height: 1.2;
         font-weight: unset;
         position: absolute;

@@ -320,10 +320,6 @@ class App extends Component {
                                 component={dashboard}
                                 permission={isSuperAdmin(this.state.user)}/>
                             <AuthorizedRoute
-                                exact path='/dashboard_admin'
-                                component={Dashboard_admin}
-                                permission={isOnlyAdmin(this.state.user)}/>
-                            <AuthorizedRoute
                                 exact path='/email'
                                 component={Email}
                                 permission={isSuperAdmin(this.state.user)}/>
