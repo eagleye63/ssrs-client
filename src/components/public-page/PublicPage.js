@@ -222,7 +222,6 @@ class PublicPage extends Component {
                                                     clearSignupMessage={this.clearSignupMessage}
                                                     handleSignUp={this.handleSignUp}
                                                     handleChange={this.handleChange}
-                                                    isTourOpen={this.isTourOpen}
                                                     />
                                     
                                     </div>

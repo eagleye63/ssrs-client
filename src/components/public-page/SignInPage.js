@@ -46,9 +46,11 @@ class SignInPage extends React.Component {
                 position: 'fixed',
                 bottom: '2%',
                 right: '1%',
-                background: 'rgba(0, 0, 0, 0.5)'
+                background: 'rgba(0, 0, 0, 0.5)',
+                fontWeight: 'bold',
+                 color: 'white'
             }}>
-                Happy to Help !
+                      <i class="fa fa-question-circle"></i> Help !
             </Button>
             <Tour
                 onRequestClose={this.closeTour}
