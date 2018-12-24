@@ -8,6 +8,7 @@ import $ from "jquery";
 import ErrorMessage from "../../error/ErrorMessage";
 import { withAlert } from "react-alert";
 import {loadSpinner, unloadSpinner} from "../../../helper/spinner";
+var selectedParamters;
 class OrderForm extends Component {
     constructor(props) {
         super(props);
@@ -36,9 +37,19 @@ class OrderForm extends Component {
     }
 
     handleParamenterChange = ({target}) => {
+        var xy = [...this.state.parameters];
+        //xy = JSON.stringify(xy);
+        for(var i=0;i<xy.length;i++){
+            xy[i] = false;
+        }
+        xy[target.dataset.index] = true;
         this.setState({
-            parameters: _.map(this.state.parameters, (o, i) => i == target.dataset.index ? !o : o)
-        })
+            parameters: [...xy]
+        });
+        selectedParamters = 0;
+
+        
+
     };
 
     getSelectedPrameters = (parameters) => {
@@ -57,19 +68,47 @@ class OrderForm extends Component {
         
     };
 
+    
     handleSubmit = (e) => {
+
+        var xy = [...this.state.parameters];
+        var flag=1;
+       
+        var count=0;
+        for(var i=0;i<xy.length;i++){
+                
+            if(xy[i] === false){
+            count=count+1;
+            }
+        }
+        console.log('count ' + count );
+        
         loadSpinner();
         $(this.modal).modal('hide');
-        e.preventDefault()
+        if(count === xy.length){
+            console.log('stop');
+            this.setState({
+                errorMessage: 'Please select one of the parameters.'
+            });
+            $(this.modal).modal('show');
 
+            unloadSpinner();
+            flag=0;
+        } 
+        else{
+        e.preventDefault()
         const that = this;
         const url = domainUrl + '/order/';
         const request = new XMLHttpRequest();
         request.open('POST', url, true);
         request.withCredentials = true;
         request.setRequestHeader("Content-type", "application/json");
+        console.log('stat1');
+
        
-        request.onload = function () {
+        request.onload= function () {
+            console.log('stat');
+
             if (this.status === HttpStatus.CREATED) {
                 const response = JSON.parse(request.response);
                 $(that.modal).modal('hide');
@@ -100,16 +139,19 @@ class OrderForm extends Component {
                 $(that.modal).modal('show');
             }
             unloadSpinner();
+        
+     
         }
-        
+    
         request.send(JSON.stringify(this.getOrderDetails(this.state)));
-      
-        
+    
+    }
     }
     render() {
         
         const {service} = this.props;
-        const selectedParamters = this.getSelectedPrameters(this.state.parameters)
+        selectedParamters = null;
+        selectedParamters = this.getSelectedPrameters(this.state.parameters)
         var parameterBtnLabel = _.map(selectedParamters, 'name').join(', ')
         parameterBtnLabel = parameterBtnLabel === '' ? 'Select' : parameterBtnLabel
         parameterBtnLabel = parameterBtnLabel.length > 45 ? `Selected(${selectedParamters.length})` : parameterBtnLabel

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import _ from "lodash";
-import $ from 'jquery';
+
 var chk = document.getElementsByTagName('input');
 class MultiSelectDropDown extends Component {
     state = {
@@ -22,23 +22,10 @@ class MultiSelectDropDown extends Component {
         }
     }
     
-    
-    console.log(chk[props].value);
-    
-    }
-    componentDidUpdate () {
-        var chklength = chk.length; 
-        for(var k=0;k< chklength;k++){
-            if( chk[k].checked === true){
-                break;
-            }
-            alert('pp');
-        }
-    }
+  
+}
+   
     render() {
-        var xc=0;
-        console.log(chk);
-        
         return (
            
             <div className="form-group">
@@ -59,15 +46,18 @@ class MultiSelectDropDown extends Component {
                                                    title={o.description}
                                                    className={'checkbox-cstm pl-4 pt-2 pb-2'}
                                                    style={{"width": '100%', "minHeight": '26px'}}>
-                                                   
-                                                <input onClick={() => this.xyz(index+1)}
+                                                <div>
+                                                <input onClick={()=> {this.xyz(index+1)}}
+                                                        onChange={this.props.handleOptionChange}
+                                                    
                                                        data-index={index}
                                                        type="checkbox"
                                                        id={index+1}
                                                        value={o.name}
+                                                       name="pp"
                                                       
                                                        />
-                                
+                                                </div>
                                                 {o.name + " (₹" + o.baseCharge + ")"}
                                                
                                             </label>
