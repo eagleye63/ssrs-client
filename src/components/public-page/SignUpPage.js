@@ -8,6 +8,9 @@ import Text from "../../product_tour/Text";
 import Tooltip from "../../product_tour/Tooltip";
 import classes from '../../product_tour/styles.css'; 
 import { Button, Link } from "../../product_tour/Button";
+import { withAlert } from "react-alert";
+import ErrorMessageModern from "../error/ErrorMessageModern";
+
 const bodyScrollLock = require('body-scroll-lock');
 
 const disableBodyScroll = bodyScrollLock.disableBodyScroll;
@@ -91,7 +94,8 @@ class SignUpPage extends React.Component{
                             </span>
                         </div>
                     </div>
-                   <ErrorMessage  message={signupMessage} clearMessage={clearSignupMessage}  />
+                   <ErrorMessage message={signupMessage} clearMessage={clearSignupMessage}  />
+                   
                 </div>
                 <div className="page-input" data-tut="reactour__positionButton1"><input type="submit" value="SIGN ME UP!"
                     onClick={(e) => {
@@ -101,10 +105,10 @@ class SignUpPage extends React.Component{
                 <div className={'alert alert-success p-2 mt-2 mb-2' + (isSignedup ? '' : ' d-none')}>
                     <span className={"alert-link"}
                         style={{ "cursor": "pointer" }}
-                        onClick={handleResendVerificationLink}> Resend Link
+                        onClick={()=> {loadSpinner() }}> Resend Link
                     </span>
                 </div>
-            </form>
+            </form>  
         </div>
     )
     }

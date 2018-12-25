@@ -9,7 +9,7 @@ import Text from "../../product_tour/Text";
 import Tooltip from "../../product_tour/Tooltip";
 import classes from '../../product_tour/styles.css'; 
 import { Button, Link } from "../../product_tour/Button";
-
+import {withAlert} from 'react-alert';
 const bodyScrollLock = require('body-scroll-lock');
 
 const disableBodyScroll = bodyScrollLock.disableBodyScroll;
@@ -79,7 +79,7 @@ class SignInPage extends React.Component {
                                onChange={handleChange}/>
                         <ErrorMessage message={loginMessage} clearMessage={clearLoginMessage}/>
                     </div>
-                    <div className="page-input"><input type="submit" value="ENTER"/></div>
+                    <div className="page-input"><input type="submit" value="ENTER" /></div>
                     <input data-tut="reactour__positionForgetPassword" type="button" className={'page-link-cstm mt-2'} value="Forgot Password?"
                            onClick={openModal}/>
                 </form>

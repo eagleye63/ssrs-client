@@ -83,7 +83,7 @@ class Cart extends Component {
                     <NavigationBar/>
                     <Stapes active={1}/>
                     <div className="container cart-empty mt-4">
-                        <h1> Your cart is empty! </h1>
+                        <h1 id="heading_position"> Your cart is empty! </h1>
                         <Link to={'/service'} className='mt-4'>
                             <button className="btn btn-outline-dark btn-lg">
                                 {"Go, Add Services"} </button>
@@ -98,9 +98,9 @@ class Cart extends Component {
             <div>
                 <NavigationBar/>
                 <Stapes active={1}/>
-                <div className="container">
-                    <table id="cart" className="table table-hover table-condensed">
-                        <thead>
+                <div className="container" >
+                    <table id="cart" className="table table-hover table-condensed" >
+                        <thead >
                         <tr>
                             <th className='text-center'>Service</th>
                             <th className='text-center'>Parameters</th>
@@ -111,10 +111,10 @@ class Cart extends Component {
                             <th className='text-center'></th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody style={{width: '100%', padding: '0%', margin: '0%'}}>
                         {
                             _.map(this.state.cart.orders, (o, i) => <Service key={o._id}
-                                                                             order={o}
+                                                                                 order={o}
                                                                              index={i}
                                                                              updateOrder={this.updateOrder}
                                                                              deleteOrder={this.deleteOrder}/>)

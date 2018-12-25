@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
 @import url(https://fonts.googleapis.com/css?family=Squada+One);
-
 :root {
     --main-color: #203447;
     --main-color-light: rgba(32, 45, 65, 0.09);
@@ -82,9 +81,16 @@ p {
     margin-right: 0.5%;
     margin-left: 0.5%;
 }
-
+/*PC VIEW*/
 @media screen and (min-width: 600px) {
+    #delete_button{
+        width: 50px;
+        margin-left: 12px;
+    }
 
+    #search_bar_position {
+        float: right;
+    }
     .active {
         font-weight: 600;
         /* text-decoration-line: overline;
@@ -293,7 +299,31 @@ input[type=submit] {
     padding-top: 4px;
 }
 @media screen and (max-width: 369px){
-
+    #table_position{
+        border: 10px #000;
+    }
+    #avatar_position{
+        display: none;
+    }
+    #avatar_for_mobile{
+        display: inline-block;
+        font-weight: bold;
+    }
+    #delete_button{
+        width: 110px;
+        margin-left: 12px;
+    }
+    #heading_position{
+        font-size: 40px;
+    }
+    #order_position {
+        position: relative;
+        overflow-y: scroll;
+    }
+    #search_bar_position {
+        left: 50%;
+        width: 100px;
+    }
     .limiter table {
         display: block;
     }
@@ -360,9 +390,26 @@ input[type=submit] {
     }
 
 }
+/*TABLET VIEW*/
 @media screen and (max-width: 600px) and (min-width: 370px){
-
-
+    #heading_position {
+        font-size: 50px;
+    }
+    #delete_button{
+        width: 170px;
+        margin-left: 10px;
+    }
+    #edit_position {
+        width: 190px;
+        margin: 0%;
+        display: inline-block;
+        
+    }
+    #search_bar_position {
+        left: 50%;
+        width: 130px;
+    }
+    
     .limiter table {
         display: block;
     }
@@ -519,6 +566,7 @@ input:checked + .slider:before {
 @media screen and (max-width: 600px) {
     table#cart tbody td .form-control {
         display: inline !important;
+        
     }
 
     .actions .btn {
@@ -528,10 +576,14 @@ input:checked + .slider:before {
 
     .actions .btn-info {
         float: left;
+        color: #000;
+        font-size: 150px;
     }
 
     .actions .btn-danger {
-        float: right;
+        float: left;
+        width: 50%;
+        
     }
 
     table#cart thead {
@@ -542,11 +594,15 @@ input:checked + .slider:before {
         display: block;
         padding: .6rem;
         min-width: 320px;
+        width: 100%;
+        margin: 0%;
     }
 
     table#cart tbody tr td:first-child {
         background: #333;
         color: #fff;
+        width: 100%;
+
     }
 
     table#cart tbody td:before {

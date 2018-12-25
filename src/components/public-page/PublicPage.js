@@ -114,6 +114,7 @@ class PublicPage extends Component {
 
     handleResendVerificationLink = () => {
         loadSpinner();
+        this.props.showSpinner();
 
         var url = domainUrl + '/account/resendVerificationLink/' + this.state.daiictId;
         var request = new XMLHttpRequest();
